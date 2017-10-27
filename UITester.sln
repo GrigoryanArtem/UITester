@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITester.Model", "UITester.Model\UITester.Model.csproj", "{40553069-22DA-47BD-9E53-A9B19FF4CA01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITester.CUI", "UITester.CUI\UITester.CUI.csproj", "{352750D1-970E-4924-BAE3-04F708EBD966}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40553069-22DA-47BD-9E53-A9B19FF4CA01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40553069-22DA-47BD-9E53-A9B19FF4CA01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40553069-22DA-47BD-9E53-A9B19FF4CA01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40553069-22DA-47BD-9E53-A9B19FF4CA01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352750D1-970E-4924-BAE3-04F708EBD966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352750D1-970E-4924-BAE3-04F708EBD966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352750D1-970E-4924-BAE3-04F708EBD966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352750D1-970E-4924-BAE3-04F708EBD966}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
