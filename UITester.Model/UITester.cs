@@ -20,45 +20,64 @@ namespace UITester.Model
 
         private IWriter mWriter;
         private Application mApplication;
-        private CruciatusElement mMainWindow;
         private ITestsExecutor mTestsExecutor;
         private List<IUITest> mTestList = new List<IUITest>();
-        private Dictionary<string, UIElement> mIdentificators 
-            = new Dictionary<string, UIElement>();
+        private Stack<CruciatusElement> mWindowStack =
+            new Stack<CruciatusElement>();
+        private Dictionary<string, CruciatusElement> mIdentificators = 
+            new Dictionary<string, CruciatusElement>();
 
         #endregion
 
-        public UITester(string applicationPath, string windowName)
+        public UITester(string applicationPath)
         {
             mWriter = Kernel.Instance.Get<IWriter>();
             mTestsExecutor = Kernel.Instance.Get< ITestsExecutor>();
             mApplication = new Application(applicationPath);
-
-            InitializeTestWindow(windowName);
+            mApplication.Start();
         }
 
         #region Public methods
 
+        public bool IsIdentificatorExist(string id)
+        {
+            return mIdentificators.ContainsKey(id);
+        }
+
         public UITester AddIdentificator(string name, UIElement element)
         {
-            mIdentificators.Add(name, element);
-
+            mIdentificators.Add(name, GetCruciatusElement(element));
+            
             return this;
         }
 
         public UITester AddTest(string id, TestEvent testEvent, params TestParameter[] parameters)
         {
-            return AddTest(UITest.Create(GetElementById(id), testEvent, parameters));
+            return AddTest(UITest.Create(mIdentificators[id], testEvent, parameters));
         }
 
         public UITester AddTest(string id, TestEvent testEvent, string comment, params TestParameter[] parameters)
         {
-            return AddTest(UITest.Create(GetElementById(id), testEvent, comment, parameters));
+            return AddTest(UITest.Create(mIdentificators[id], testEvent, comment, parameters));
         }
 
         public UITester AddTest(IUITest test)
         {
             mTestList.Add(test);
+            return this;
+        }
+
+        public UITester Become(string windowName)
+        {
+            var winFinder = By.Name(windowName).AndType(ControlType.Window);
+            mWindowStack.Push(CruciatusFactory.Root.FindElement(winFinder));
+
+            return this;
+        }
+
+        public UITester Unbecome()
+        {
+            mWindowStack.Pop();
             return this;
         }
 
@@ -88,22 +107,13 @@ namespace UITester.Model
 
         #region Private mehods
 
-        private void InitializeTestWindow(string windowName)
+        private CruciatusElement GetCruciatusElement(UIElement element)
         {
-            mApplication.Start();
-            var winFinder = By.Name(windowName).AndType(ControlType.Window);
-            mMainWindow = CruciatusFactory.Root.FindElement(winFinder);
-        }
+            if (!String.IsNullOrEmpty(element.UID))
+                return mWindowStack.Peek().FindElementByUid(element.UID);
 
-        private CruciatusElement GetElementById(string id)
-        {
-            var uiElement = mIdentificators[id];
-
-            if (!String.IsNullOrEmpty(uiElement.UID))
-                return mMainWindow.FindElementByUid(uiElement.UID);
-
-            if (uiElement.Name != null)
-                return mMainWindow.FindElement(By.Name(uiElement.Name).AndType(uiElement.Type));
+            if (element.Name != null)
+                return mWindowStack.Peek().FindElement(By.Name(element.Name).AndType(element.Type));
 
             throw new ArgumentException();
         }

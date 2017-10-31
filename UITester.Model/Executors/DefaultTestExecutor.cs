@@ -192,13 +192,20 @@ namespace UITester.Model.Executors
         {
             NumberOfSuccessTest++;
             mWriter.Write(new SuccessMessage(String.Format(
-                TestExecutorStringResources.SuccessTestFormat, test.Comment)));
+                TestExecutorStringResources.SuccessTestFormat, GetTesttName(test))));
         }
 
         private void FailureTest(IUITest test)
         {
             mWriter.Write(new FailureMessage(String.Format(
-                TestExecutorStringResources.FailureTestFormat, test.Comment)));
+                TestExecutorStringResources.FailureTestFormat, GetTesttName(test))));
+        }
+
+        private string GetTesttName(IUITest test)
+        {
+            return String.IsNullOrEmpty(test.Comment) ? 
+                String.Format(TestExecutorStringResources.UnnamedTestFormat, NumberOfTest) : 
+                test.Comment;
         }
 
         #endregion

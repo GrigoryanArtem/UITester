@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{352750D1-970E-4924-BAE3-04F708EBD966}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>UITester.CUI</RootNamespace>
-    <AssemblyName>UITester.CUI</AssemblyName>
+    <ProjectGuid>{DE9BD86E-3A19-4FDB-BADA-B70333368FED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UITester.Scanners</RootNamespace>
+    <AssemblyName>UITester.Scanners</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -44,21 +42,19 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UITestScanner.cs" />
+    <Compile Include="UITestScannerLexicalUnit.cs" />
+    <Compile Include="UITestScannerSyntaxUnit.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="UITester.CUI.licenseheader" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\QUT\QUT.csproj">
+      <Project>{ca1014b3-a741-4620-a36a-885fff5a9895}</Project>
+      <Name>QUT</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UITester.Model\UITester.Model.csproj">
       <Project>{40553069-22da-47bd-9e53-a9b19ff4ca01}</Project>
       <Name>UITester.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UITester.Scanners\UITester.Scanners.csproj">
-      <Project>{de9bd86e-3a19-4fdb-bada-b70333368fed}</Project>
-      <Name>UITester.Scanners</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

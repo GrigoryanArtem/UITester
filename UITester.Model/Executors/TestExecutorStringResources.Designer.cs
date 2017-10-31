@@ -95,5 +95,14 @@ namespace UITester.Model.Executors {
                 return ResourceManager.GetString("SuccessTestFormat", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Test #{0}.
+        /// </summary>
+        internal static string UnnamedTestFormat {
+            get {
+                return ResourceManager.GetString("UnnamedTestFormat", resourceCulture);
+            }
+        }
     }
 }

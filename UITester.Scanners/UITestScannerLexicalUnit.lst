@@ -1,0 +1,298 @@
+
+// ==========================================================================
+//  GPLEX error listing for lex source file <UITestScannerLexicalUnit.lex>
+// ==========================================================================
+//  Version:  1.1.3.301
+//  Machine:  TURING
+//  DateTime: 30.10.2017 23:17:43
+//  UserName: artem
+// ==========================================================================
+
+
+%namespace UITestScannerLexicalScanner
+%using QUT;
+%using QUT.Gppg;
+%using System.Linq;
+%using UITestScannerSyntaxScanner;
+
+Text "[^"]+"
+//---------^
+// Error: Expected end-of-line here
+// --------------------------------
+LeftBracket \(
+RightBracket \)
+LeftFBracket \{
+RightFBracket \}
+LeftSBracket \[
+RightSBracket \]
+Identificator [a-z][a-zA-Z0-9]*
+Equil \=
+KWindow WINDOW
+KButton BUTTON
+KTree TREE
+KTreeItem TREE_ITEM
+KCustom CUSTOM
+KGroup GROUP
+KThumb THUMB
+KDataGrid DATA_GRID
+KDataItem DATA_ITEM
+KToolTip TOOL_TIP
+KDocument DOCUMENT
+KPane PANE
+KHeader HEADER
+KHeaderItem HEADER_ITEM
+KTable TABLE
+KTitleBar TITLE_BAR
+KSeparator SEPARATOR
+KSplitButton SPLIT_BUTTON
+KText TEXT
+KToolBar TOOL_BAR
+KTab TAB
+KCalendar CALENDAR
+KCheckBox CHECK_BOX
+KComboBox COMBO_BOX
+KEdit EDIT
+KHyperlink HYPER_LINK
+KImage IMAGE
+KListItem LIST_ITEM
+KTabItem TAB_ITEM
+KMenu MENU
+KList LIST
+KMenuItem MENU_ITEM
+KProgressBar PROGRESS_BAR
+KRadioButton RADIO_BUTTON
+KScrollBar SCROLL_BAR
+KSlider SLIDER
+KSpinner SPINNER
+KStatusBar STATUS_BAR
+KMenuBar MENU_BAR
+Kn N
+Ku U
+
+%%
+{KWindow} {
+	return (int)Tokens.KWindow;
+}
+
+{KButton} {
+	return (int)Tokens.KButton;
+}
+
+{KTree} {
+	return (int)Tokens.KTree;
+}
+
+{KTreeItem} {
+	return (int)Tokens.KTreeItem;
+}
+
+{KCustom} {
+	return (int)Tokens.KCustom;
+}
+
+{KGroup} {
+	return (int)Tokens.KGroup;
+}
+
+{KThumb} {
+	return (int)Tokens.KThumb;
+}
+
+{KDataGrid} {
+	return (int)Tokens.KDataGrid;
+}
+
+{KDataItem} {
+	return (int)Tokens.KDataItem;
+}
+
+{KToolTip} {
+	return (int)Tokens.KToolTip;
+}
+
+{KDocument} {
+	return (int)Tokens.KDocument;
+}
+
+{KPane} {
+	return (int)Tokens.KPane;
+}
+
+{KHeader} {
+	return (int)Tokens.KHeader;
+}
+
+{KHeaderItem} {
+	return (int)Tokens.KHeaderItem;
+}
+
+{KTable} {
+	return (int)Tokens.KTable;
+}
+
+{KTitleBar} {
+	return (int)Tokens.KTitleBar;
+}
+
+{KSeparator} {
+	return (int)Tokens.KSeparator;
+}
+
+{KSplitButton} {
+	return (int)Tokens.KSplitButton;
+}
+
+{KText} {
+	return (int)Tokens.KText;
+}
+
+{KToolBar} {
+	return (int)Tokens.KToolBar;
+}
+
+{KTab} {
+	return (int)Tokens.KTab;
+}
+
+{KCalendar} {
+	return (int)Tokens.KCalendar;
+}
+
+{KCheckBox} {
+	return (int)Tokens.KCheckBox;
+}
+
+{KComboBox} {
+	return (int)Tokens.KComboBox;
+}
+
+{KEdit} {
+	return (int)Tokens.KEdit;
+}
+
+{KHyperlink} {
+	return (int)Tokens.KHyperlink;
+}
+
+{KImage} {
+	return (int)Tokens.KImage;
+}
+
+{KListItem} {
+	return (int)Tokens.KListItem;
+}
+
+{KTabItem} {
+	return (int)Tokens.KTabItem;
+}
+
+{KMenu} {
+	return (int)Tokens.KMenu;
+}
+
+{KList} {
+	return (int)Tokens.KList;
+}
+
+{KMenuItem} {
+	return (int)Tokens.KMenuItem;
+}
+
+{KProgressBar} {
+	return (int)Tokens.KProgressBar;
+}
+
+{KRadioButton} {
+	return (int)Tokens.KRadioButton;
+}
+
+{KScrollBar} {
+	return (int)Tokens.KScrollBar;
+}
+
+{KSlider} {
+	return (int)Tokens.KSlider;
+}
+
+{KSpinner} {
+	return (int)Tokens.KSpinner;
+}
+
+{KStatusBar} {
+	return (int)Tokens.KStatusBar;
+}
+
+{KMenuBar} {
+	return (int)Tokens.KMenuBar;
+}
+
+{Kn} {
+	return (int)Tokens.Kn;
+}
+
+{Ku} {
+	return (int)Tokens.Ku;
+}
+
+{LeftBracket} {
+	return (int)Tokens.LeftBracket;
+}
+
+{RightBracket} {
+	return (int)Tokens.RightBracket;
+}
+
+{Text} {
+  yylval.sVal = yytext.Substring(1, yytext.Length - 2);
+	return (int)Tokens.Text;
+}
+
+{LeftFBracket} {
+	return (int)Tokens.LeftFBracket;
+}
+
+{RightFBracket} {
+	return (int)Tokens.RightFBracket;
+}
+
+{LeftSBracket} {
+	return (int)Tokens.LeftSBracket;
+}
+
+{RightSBracket} {
+	return (int)Tokens.RightSBracket;
+}
+
+{Identificator} {
+  yylval.sVal = yytext;
+	return (int)Tokens.Identificator;
+}
+
+{Equil} {
+	return (int)Tokens.Equil;
+}
+
+[^ \r\n] {
+LexError();
+return (int)Tokens.EOF;
+}
+
+%{
+  yylloc = new LexLocation(tokLin, tokCol, tokELin, tokECol);
+%}
+
+%%
+
+public override void yyerror(string format, params object[] args)
+{
+  var ww = args.Skip(1).Cast<string>().ToArray();
+  string errorMsg = string.Format("({0},{1}): Detect {2},  expected {3}", yyline, yycol, args[0], string.Join(" or ", ww));
+  throw new SyntaxException(errorMsg);
+}
+
+public void LexError()
+{
+  string errorMsg = string.Format("({0},{1}): Unknown character {2}", yyline, yycol, yytext);
+    throw new LexicalException(errorMsg);
+}// ==========================================================================
+

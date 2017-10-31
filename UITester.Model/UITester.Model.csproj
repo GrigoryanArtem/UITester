@@ -82,6 +82,7 @@
     <Compile Include="UIElements\TestEvent.cs" />
     <Compile Include="UIElements\UIElement.cs" />
     <Compile Include="UITester.cs" />
+    <Compile Include="UITests\ParametersParser.cs" />
     <Compile Include="UITests\TestParameter.cs" />
     <Compile Include="UITests\UITest.cs" />
     <Compile Include="Writers\ConsoleWriter.cs" />
