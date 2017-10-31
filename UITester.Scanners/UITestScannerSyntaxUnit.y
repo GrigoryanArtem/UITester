@@ -45,7 +45,7 @@
 main_expression : window_expression { }
 				;
 
-window_expression :  init_window_expression LeftFBracket tests_expression RightFBracket { }
+window_expression :  init_window_expression LeftFBracket tests_expression close_window_expression { }
 			    ;
 
 init_window_expression : KWindow LeftBracket Text RightBracket {
@@ -53,6 +53,10 @@ init_window_expression : KWindow LeftBracket Text RightBracket {
 				}		
 				;
 
+close_window_expression : RightFBracket {
+					Tester.Unbecome();
+				}
+				;
 tests_expression : test_expression {  }
 				| test_expression tests_expression { }
 				;
