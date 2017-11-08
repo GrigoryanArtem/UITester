@@ -61,11 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Executors\DefaultTestExecutor.cs" />
-    <Compile Include="Executors\DefaultTestsExecutor.cs" />
     <Compile Include="Executors\FunctionAttribute.cs" />
     <Compile Include="Executors\IExecutor.cs" />
     <Compile Include="Executors\ITestExecutor.cs" />
-    <Compile Include="Executors\ITestsExecutor.cs" />
     <Compile Include="Executors\TestExecutorStringResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -20,8 +20,8 @@ namespace UITester.Model
 
         private IWriter mWriter;
         private Application mApplication;
-        private ITestsExecutor mTestsExecutor;
-        private List<IUITest> mTestList = new List<IUITest>();
+        private ITestExecutor mTestsExecutor;
+        private DateTime mStartTime;
         private Stack<CruciatusElement> mWindowStack =
             new Stack<CruciatusElement>();
         private Dictionary<string, CruciatusElement> mIdentificators = 
@@ -32,9 +32,12 @@ namespace UITester.Model
         public UITester(string applicationPath)
         {
             mWriter = Kernel.Instance.Get<IWriter>();
-            mTestsExecutor = Kernel.Instance.Get< ITestsExecutor>();
+            mTestsExecutor = Kernel.Instance.Get< ITestExecutor>();
             mApplication = new Application(applicationPath);
             mApplication.Start();
+
+            mWriter.Write(new Message(TesterStringResources.StartTesting));
+            mStartTime = DateTime.Now;
         }
 
         #region Public methods
@@ -63,7 +66,9 @@ namespace UITester.Model
 
         public UITester AddTest(IUITest test)
         {
-            mTestList.Add(test);
+            
+
+            mTestsExecutor.Execute(test);
             return this;
         }
 
@@ -84,17 +89,9 @@ namespace UITester.Model
         public void Close()
         {
             mApplication.Close();
-        }
 
-        public void StartTesting()
-        {
-            mWriter.Write(new Message(TesterStringResources.StartTesting));
-            var start = DateTime.Now;
-
-            mTestsExecutor.Execute(mTestList);
-
-            var interval = DateTime.Now - start;
-            double passedTests = (double)mTestsExecutor.NumberOfSuccessTest 
+            var interval = DateTime.Now - mStartTime;
+            double passedTests = (double)mTestsExecutor.NumberOfSuccessTest
                 / (double)mTestsExecutor.NumberOfTest * 100.0;
 
             mWriter.Write(new Message(TesterStringResources.EndTesting));

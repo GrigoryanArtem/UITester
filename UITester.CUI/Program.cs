@@ -29,7 +29,6 @@ namespace UITester.CUI
                 Model.UITester tester = new Model.UITester(mOptions.RunFilePath);
 
                 tester.ParseFile(mOptions.TestFilePath);
-                tester.StartTesting();
                 tester.Close();
             }
             catch (Exception exp)

@@ -13,7 +13,6 @@ namespace UITester.Model
         {
             Bind<IWriter>().To<ConsoleWriter>();
             Bind<ITestExecutor>().To<DefaultTestExecutor>();
-            Bind<ITestsExecutor>().To<DefaultTestsExecutor>();
         }
     }
 }
