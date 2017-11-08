@@ -2,6 +2,8 @@
 // Licensed under the Apache License, Version 2.0
 
 using Ninject;
+using Ninject.Modules;
+using Ninject.Parameters;
 using System;
 
 namespace UITester.Model
@@ -33,9 +35,14 @@ namespace UITester.Model
             mKernel = new StandardKernel(new NinjectBindings());
         }
 
-        public T Get<T>()
+        public void ResetModule(NinjectModule ninjectModule)
         {
-            return mKernel.Get<T>();
+            mKernel = new StandardKernel(ninjectModule);
+        }
+
+        public T Get<T>(params IParameter[] parameters)
+        {
+            return mKernel.Get<T>(parameters);
         }
     }
 }

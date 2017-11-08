@@ -4,7 +4,7 @@
 
 // GPPG version 1.3.6
 // Machine:  TURING
-// DateTime: 31.10.2017 3:50:34
+// DateTime: 08.11.2017 3:55:06
 // UserName: artem
 // Input file <UITestScannerSyntaxUnit.y>
 
@@ -62,8 +62,8 @@ public class Parser: ShiftReduceParser<ValueType, LexLocation>
 #pragma warning disable 649
   private static Dictionary<int, string> aliasses;
 #pragma warning restore 649
-  private static Rule[] rules = new Rule[78];
-  private static State[] states = new State[102];
+  private static Rule[] rules = new Rule[79];
+  private static State[] states = new State[103];
   private static string[] nonTerms = new string[] {
       "main_expression", "test_type", "control_type", "control_expression", "identificator_expression", 
       "$accept", "window_expression", "init_window_expression", "tests_expression", 
@@ -71,73 +71,73 @@ public class Parser: ShiftReduceParser<ValueType, LexLocation>
       "event_expression", };
 
   static Parser() {
-    states[0] = new State(new int[]{65,98},new int[]{-1,1,-7,3,-8,4});
+    states[0] = new State(new int[]{65,99},new int[]{-1,1,-7,3,-8,4});
     states[1] = new State(new int[]{2,2});
     states[2] = new State(-1);
     states[3] = new State(-2);
     states[4] = new State(new int[]{70,5});
-    states[5] = new State(new int[]{4,12,44,66,45,67,46,68,47,69,48,70,49,71,50,72,51,73,52,74,53,75,54,76,55,77,56,78,57,79,58,80,59,81,60,82,61,83,62,84,63,85,64,86,75,87,5,97},new int[]{-9,6,-11,9,-12,11,-13,61,-2,62});
+    states[5] = new State(new int[]{4,12,44,67,45,68,46,69,47,70,48,71,49,72,50,73,51,74,52,75,53,76,54,77,55,78,56,79,57,80,58,81,59,82,60,83,61,84,62,85,63,86,64,87,75,88,5,98},new int[]{-9,6,-11,9,-12,11,-13,61,-2,62});
     states[6] = new State(new int[]{71,8},new int[]{-10,7});
     states[7] = new State(-3);
     states[8] = new State(-5);
-    states[9] = new State(new int[]{4,12,44,66,45,67,46,68,47,69,48,70,49,71,50,72,51,73,52,74,53,75,54,76,55,77,56,78,57,79,58,80,59,81,60,82,61,83,62,84,63,85,64,86,75,87,5,97,71,-6},new int[]{-9,10,-11,9,-12,11,-13,61,-2,62});
+    states[9] = new State(new int[]{4,12,44,67,45,68,46,69,47,70,48,71,49,72,50,73,51,74,52,75,53,76,54,77,55,78,56,79,57,80,58,81,59,82,60,83,61,84,62,85,63,86,64,87,75,88,5,98,71,-6},new int[]{-9,10,-11,9,-12,11,-13,61,-2,62});
     states[10] = new State(-7);
     states[11] = new State(-8);
     states[12] = new State(new int[]{74,13});
     states[13] = new State(new int[]{6,23,7,24,8,25,9,26,10,27,11,28,12,29,13,30,14,31,15,32,16,33,17,34,18,35,19,36,20,37,21,38,22,39,23,40,24,41,25,42,26,43,27,44,28,45,29,46,30,47,31,48,32,49,33,50,34,51,35,52,36,53,37,54,38,55,39,56,40,57,41,58,42,59,43,60},new int[]{-4,14,-3,15});
-    states[14] = new State(-16);
+    states[14] = new State(-17);
     states[15] = new State(new int[]{72,16});
     states[16] = new State(new int[]{66,17,67,20});
     states[17] = new State(new int[]{3,18});
     states[18] = new State(new int[]{73,19});
-    states[19] = new State(-17);
+    states[19] = new State(-18);
     states[20] = new State(new int[]{3,21});
     states[21] = new State(new int[]{73,22});
-    states[22] = new State(-18);
-    states[23] = new State(-40);
-    states[24] = new State(-41);
-    states[25] = new State(-42);
-    states[26] = new State(-43);
-    states[27] = new State(-44);
-    states[28] = new State(-45);
-    states[29] = new State(-46);
-    states[30] = new State(-47);
-    states[31] = new State(-48);
-    states[32] = new State(-49);
-    states[33] = new State(-50);
-    states[34] = new State(-51);
-    states[35] = new State(-52);
-    states[36] = new State(-53);
-    states[37] = new State(-54);
-    states[38] = new State(-55);
-    states[39] = new State(-56);
-    states[40] = new State(-57);
-    states[41] = new State(-58);
-    states[42] = new State(-59);
-    states[43] = new State(-60);
-    states[44] = new State(-61);
-    states[45] = new State(-62);
-    states[46] = new State(-63);
-    states[47] = new State(-64);
-    states[48] = new State(-65);
-    states[49] = new State(-66);
-    states[50] = new State(-67);
-    states[51] = new State(-68);
-    states[52] = new State(-69);
-    states[53] = new State(-70);
-    states[54] = new State(-71);
-    states[55] = new State(-72);
-    states[56] = new State(-73);
-    states[57] = new State(-74);
-    states[58] = new State(-75);
-    states[59] = new State(-76);
-    states[60] = new State(-77);
+    states[22] = new State(-19);
+    states[23] = new State(-41);
+    states[24] = new State(-42);
+    states[25] = new State(-43);
+    states[26] = new State(-44);
+    states[27] = new State(-45);
+    states[28] = new State(-46);
+    states[29] = new State(-47);
+    states[30] = new State(-48);
+    states[31] = new State(-49);
+    states[32] = new State(-50);
+    states[33] = new State(-51);
+    states[34] = new State(-52);
+    states[35] = new State(-53);
+    states[36] = new State(-54);
+    states[37] = new State(-55);
+    states[38] = new State(-56);
+    states[39] = new State(-57);
+    states[40] = new State(-58);
+    states[41] = new State(-59);
+    states[42] = new State(-60);
+    states[43] = new State(-61);
+    states[44] = new State(-62);
+    states[45] = new State(-63);
+    states[46] = new State(-64);
+    states[47] = new State(-65);
+    states[48] = new State(-66);
+    states[49] = new State(-67);
+    states[50] = new State(-68);
+    states[51] = new State(-69);
+    states[52] = new State(-70);
+    states[53] = new State(-71);
+    states[54] = new State(-72);
+    states[55] = new State(-73);
+    states[56] = new State(-74);
+    states[57] = new State(-75);
+    states[58] = new State(-76);
+    states[59] = new State(-77);
+    states[60] = new State(-78);
     states[61] = new State(-9);
-    states[62] = new State(new int[]{4,64,6,23,7,24,8,25,9,26,10,27,11,28,12,29,13,30,14,31,15,32,16,33,17,34,18,35,19,36,20,37,21,38,22,39,23,40,24,41,25,42,26,43,27,44,28,45,29,46,30,47,31,48,32,49,33,50,34,51,35,52,36,53,37,54,38,55,39,56,40,57,41,58,42,59,43,60},new int[]{-5,63,-4,65,-3,15});
-    states[63] = new State(-11);
-    states[64] = new State(-14);
+    states[62] = new State(new int[]{4,65,6,23,7,24,8,25,9,26,10,27,11,28,12,29,13,30,14,31,15,32,16,33,17,34,18,35,19,36,20,37,21,38,22,39,23,40,24,41,25,42,26,43,27,44,28,45,29,46,30,47,31,48,32,49,33,50,34,51,35,52,36,53,37,54,38,55,39,56,40,57,41,58,42,59,43,60},new int[]{-5,63,-4,66,-3,15});
+    states[63] = new State(new int[]{3,64,4,-11,44,-11,45,-11,46,-11,47,-11,48,-11,49,-11,50,-11,51,-11,52,-11,53,-11,54,-11,55,-11,56,-11,57,-11,58,-11,59,-11,60,-11,61,-11,62,-11,63,-11,64,-11,75,-11,5,-11,71,-11});
+    states[64] = new State(-12);
     states[65] = new State(-15);
-    states[66] = new State(-19);
+    states[66] = new State(-16);
     states[67] = new State(-20);
     states[68] = new State(-21);
     states[69] = new State(-22);
@@ -158,21 +158,22 @@ public class Parser: ShiftReduceParser<ValueType, LexLocation>
     states[84] = new State(-37);
     states[85] = new State(-38);
     states[86] = new State(-39);
-    states[87] = new State(new int[]{68,91,44,66,45,67,46,68,47,69,48,70,49,71,50,72,51,73,52,74,53,75,54,76,55,77,56,78,57,79,58,80,59,81,60,82,61,83,62,84,63,85,64,86},new int[]{-2,88});
-    states[88] = new State(new int[]{4,64,6,23,7,24,8,25,9,26,10,27,11,28,12,29,13,30,14,31,15,32,16,33,17,34,18,35,19,36,20,37,21,38,22,39,23,40,24,41,25,42,26,43,27,44,28,45,29,46,30,47,31,48,32,49,33,50,34,51,35,52,36,53,37,54,38,55,39,56,40,57,41,58,42,59,43,60},new int[]{-5,89,-4,65,-3,15});
-    states[89] = new State(new int[]{3,90});
-    states[90] = new State(-12);
-    states[91] = new State(new int[]{3,92});
-    states[92] = new State(new int[]{69,93});
-    states[93] = new State(new int[]{44,66,45,67,46,68,47,69,48,70,49,71,50,72,51,73,52,74,53,75,54,76,55,77,56,78,57,79,58,80,59,81,60,82,61,83,62,84,63,85,64,86},new int[]{-2,94});
-    states[94] = new State(new int[]{4,64,6,23,7,24,8,25,9,26,10,27,11,28,12,29,13,30,14,31,15,32,16,33,17,34,18,35,19,36,20,37,21,38,22,39,23,40,24,41,25,42,26,43,27,44,28,45,29,46,30,47,31,48,32,49,33,50,34,51,35,52,36,53,37,54,38,55,39,56,40,57,41,58,42,59,43,60},new int[]{-5,95,-4,65,-3,15});
-    states[95] = new State(new int[]{3,96});
-    states[96] = new State(-13);
-    states[97] = new State(-10);
-    states[98] = new State(new int[]{68,99});
-    states[99] = new State(new int[]{3,100});
-    states[100] = new State(new int[]{69,101});
-    states[101] = new State(-4);
+    states[87] = new State(-40);
+    states[88] = new State(new int[]{68,92,44,67,45,68,46,69,47,70,48,71,49,72,50,73,51,74,52,75,53,76,54,77,55,78,56,79,57,80,58,81,59,82,60,83,61,84,62,85,63,86,64,87},new int[]{-2,89});
+    states[89] = new State(new int[]{4,65,6,23,7,24,8,25,9,26,10,27,11,28,12,29,13,30,14,31,15,32,16,33,17,34,18,35,19,36,20,37,21,38,22,39,23,40,24,41,25,42,26,43,27,44,28,45,29,46,30,47,31,48,32,49,33,50,34,51,35,52,36,53,37,54,38,55,39,56,40,57,41,58,42,59,43,60},new int[]{-5,90,-4,66,-3,15});
+    states[90] = new State(new int[]{3,91});
+    states[91] = new State(-13);
+    states[92] = new State(new int[]{3,93});
+    states[93] = new State(new int[]{69,94});
+    states[94] = new State(new int[]{44,67,45,68,46,69,47,70,48,71,49,72,50,73,51,74,52,75,53,76,54,77,55,78,56,79,57,80,58,81,59,82,60,83,61,84,62,85,63,86,64,87},new int[]{-2,95});
+    states[95] = new State(new int[]{4,65,6,23,7,24,8,25,9,26,10,27,11,28,12,29,13,30,14,31,15,32,16,33,17,34,18,35,19,36,20,37,21,38,22,39,23,40,24,41,25,42,26,43,27,44,28,45,29,46,30,47,31,48,32,49,33,50,34,51,35,52,36,53,37,54,38,55,39,56,40,57,41,58,42,59,43,60},new int[]{-5,96,-4,66,-3,15});
+    states[96] = new State(new int[]{3,97});
+    states[97] = new State(-14);
+    states[98] = new State(-10);
+    states[99] = new State(new int[]{68,100});
+    states[100] = new State(new int[]{3,101});
+    states[101] = new State(new int[]{69,102});
+    states[102] = new State(-4);
 
     rules[1] = new Rule(-6, new int[]{-1,2});
     rules[2] = new Rule(-1, new int[]{-7});
@@ -185,72 +186,73 @@ public class Parser: ShiftReduceParser<ValueType, LexLocation>
     rules[9] = new Rule(-11, new int[]{-13});
     rules[10] = new Rule(-11, new int[]{5});
     rules[11] = new Rule(-13, new int[]{-2,-5});
-    rules[12] = new Rule(-13, new int[]{75,-2,-5,3});
-    rules[13] = new Rule(-13, new int[]{75,68,3,69,-2,-5,3});
-    rules[14] = new Rule(-5, new int[]{4});
-    rules[15] = new Rule(-5, new int[]{-4});
-    rules[16] = new Rule(-12, new int[]{4,74,-4});
-    rules[17] = new Rule(-4, new int[]{-3,72,66,3,73});
-    rules[18] = new Rule(-4, new int[]{-3,72,67,3,73});
-    rules[19] = new Rule(-2, new int[]{44});
-    rules[20] = new Rule(-2, new int[]{45});
-    rules[21] = new Rule(-2, new int[]{46});
-    rules[22] = new Rule(-2, new int[]{47});
-    rules[23] = new Rule(-2, new int[]{48});
-    rules[24] = new Rule(-2, new int[]{49});
-    rules[25] = new Rule(-2, new int[]{50});
-    rules[26] = new Rule(-2, new int[]{51});
-    rules[27] = new Rule(-2, new int[]{52});
-    rules[28] = new Rule(-2, new int[]{53});
-    rules[29] = new Rule(-2, new int[]{54});
-    rules[30] = new Rule(-2, new int[]{55});
-    rules[31] = new Rule(-2, new int[]{56});
-    rules[32] = new Rule(-2, new int[]{57});
-    rules[33] = new Rule(-2, new int[]{58});
-    rules[34] = new Rule(-2, new int[]{59});
-    rules[35] = new Rule(-2, new int[]{60});
-    rules[36] = new Rule(-2, new int[]{61});
-    rules[37] = new Rule(-2, new int[]{62});
-    rules[38] = new Rule(-2, new int[]{63});
-    rules[39] = new Rule(-2, new int[]{64});
-    rules[40] = new Rule(-3, new int[]{6});
-    rules[41] = new Rule(-3, new int[]{7});
-    rules[42] = new Rule(-3, new int[]{8});
-    rules[43] = new Rule(-3, new int[]{9});
-    rules[44] = new Rule(-3, new int[]{10});
-    rules[45] = new Rule(-3, new int[]{11});
-    rules[46] = new Rule(-3, new int[]{12});
-    rules[47] = new Rule(-3, new int[]{13});
-    rules[48] = new Rule(-3, new int[]{14});
-    rules[49] = new Rule(-3, new int[]{15});
-    rules[50] = new Rule(-3, new int[]{16});
-    rules[51] = new Rule(-3, new int[]{17});
-    rules[52] = new Rule(-3, new int[]{18});
-    rules[53] = new Rule(-3, new int[]{19});
-    rules[54] = new Rule(-3, new int[]{20});
-    rules[55] = new Rule(-3, new int[]{21});
-    rules[56] = new Rule(-3, new int[]{22});
-    rules[57] = new Rule(-3, new int[]{23});
-    rules[58] = new Rule(-3, new int[]{24});
-    rules[59] = new Rule(-3, new int[]{25});
-    rules[60] = new Rule(-3, new int[]{26});
-    rules[61] = new Rule(-3, new int[]{27});
-    rules[62] = new Rule(-3, new int[]{28});
-    rules[63] = new Rule(-3, new int[]{29});
-    rules[64] = new Rule(-3, new int[]{30});
-    rules[65] = new Rule(-3, new int[]{31});
-    rules[66] = new Rule(-3, new int[]{32});
-    rules[67] = new Rule(-3, new int[]{33});
-    rules[68] = new Rule(-3, new int[]{34});
-    rules[69] = new Rule(-3, new int[]{35});
-    rules[70] = new Rule(-3, new int[]{36});
-    rules[71] = new Rule(-3, new int[]{37});
-    rules[72] = new Rule(-3, new int[]{38});
-    rules[73] = new Rule(-3, new int[]{39});
-    rules[74] = new Rule(-3, new int[]{40});
-    rules[75] = new Rule(-3, new int[]{41});
-    rules[76] = new Rule(-3, new int[]{42});
-    rules[77] = new Rule(-3, new int[]{43});
+    rules[12] = new Rule(-13, new int[]{-2,-5,3});
+    rules[13] = new Rule(-13, new int[]{75,-2,-5,3});
+    rules[14] = new Rule(-13, new int[]{75,68,3,69,-2,-5,3});
+    rules[15] = new Rule(-5, new int[]{4});
+    rules[16] = new Rule(-5, new int[]{-4});
+    rules[17] = new Rule(-12, new int[]{4,74,-4});
+    rules[18] = new Rule(-4, new int[]{-3,72,66,3,73});
+    rules[19] = new Rule(-4, new int[]{-3,72,67,3,73});
+    rules[20] = new Rule(-2, new int[]{44});
+    rules[21] = new Rule(-2, new int[]{45});
+    rules[22] = new Rule(-2, new int[]{46});
+    rules[23] = new Rule(-2, new int[]{47});
+    rules[24] = new Rule(-2, new int[]{48});
+    rules[25] = new Rule(-2, new int[]{49});
+    rules[26] = new Rule(-2, new int[]{50});
+    rules[27] = new Rule(-2, new int[]{51});
+    rules[28] = new Rule(-2, new int[]{52});
+    rules[29] = new Rule(-2, new int[]{53});
+    rules[30] = new Rule(-2, new int[]{54});
+    rules[31] = new Rule(-2, new int[]{55});
+    rules[32] = new Rule(-2, new int[]{56});
+    rules[33] = new Rule(-2, new int[]{57});
+    rules[34] = new Rule(-2, new int[]{58});
+    rules[35] = new Rule(-2, new int[]{59});
+    rules[36] = new Rule(-2, new int[]{60});
+    rules[37] = new Rule(-2, new int[]{61});
+    rules[38] = new Rule(-2, new int[]{62});
+    rules[39] = new Rule(-2, new int[]{63});
+    rules[40] = new Rule(-2, new int[]{64});
+    rules[41] = new Rule(-3, new int[]{6});
+    rules[42] = new Rule(-3, new int[]{7});
+    rules[43] = new Rule(-3, new int[]{8});
+    rules[44] = new Rule(-3, new int[]{9});
+    rules[45] = new Rule(-3, new int[]{10});
+    rules[46] = new Rule(-3, new int[]{11});
+    rules[47] = new Rule(-3, new int[]{12});
+    rules[48] = new Rule(-3, new int[]{13});
+    rules[49] = new Rule(-3, new int[]{14});
+    rules[50] = new Rule(-3, new int[]{15});
+    rules[51] = new Rule(-3, new int[]{16});
+    rules[52] = new Rule(-3, new int[]{17});
+    rules[53] = new Rule(-3, new int[]{18});
+    rules[54] = new Rule(-3, new int[]{19});
+    rules[55] = new Rule(-3, new int[]{20});
+    rules[56] = new Rule(-3, new int[]{21});
+    rules[57] = new Rule(-3, new int[]{22});
+    rules[58] = new Rule(-3, new int[]{23});
+    rules[59] = new Rule(-3, new int[]{24});
+    rules[60] = new Rule(-3, new int[]{25});
+    rules[61] = new Rule(-3, new int[]{26});
+    rules[62] = new Rule(-3, new int[]{27});
+    rules[63] = new Rule(-3, new int[]{28});
+    rules[64] = new Rule(-3, new int[]{29});
+    rules[65] = new Rule(-3, new int[]{30});
+    rules[66] = new Rule(-3, new int[]{31});
+    rules[67] = new Rule(-3, new int[]{32});
+    rules[68] = new Rule(-3, new int[]{33});
+    rules[69] = new Rule(-3, new int[]{34});
+    rules[70] = new Rule(-3, new int[]{35});
+    rules[71] = new Rule(-3, new int[]{36});
+    rules[72] = new Rule(-3, new int[]{37});
+    rules[73] = new Rule(-3, new int[]{38});
+    rules[74] = new Rule(-3, new int[]{39});
+    rules[75] = new Rule(-3, new int[]{40});
+    rules[76] = new Rule(-3, new int[]{41});
+    rules[77] = new Rule(-3, new int[]{42});
+    rules[78] = new Rule(-3, new int[]{43});
   }
 
   protected override void Initialize() {
@@ -301,23 +303,28 @@ public class Parser: ShiftReduceParser<ValueType, LexLocation>
 					Tester.AddTest(ValueStack[ValueStack.Depth-1].sVal, ValueStack[ValueStack.Depth-2].teVal);
 				}
         break;
-      case 12: // event_expression -> KAssert, test_type, identificator_expression, Text
+      case 12: // event_expression -> test_type, identificator_expression, Text
 {
 					Tester.AddTest(ValueStack[ValueStack.Depth-2].sVal, ValueStack[ValueStack.Depth-3].teVal, ParametersParser.Parse(ValueStack[ValueStack.Depth-1].sVal));
 				}
         break;
-      case 13: // event_expression -> KAssert, LeftBracket, Text, RightBracket, test_type, 
+      case 13: // event_expression -> KAssert, test_type, identificator_expression, Text
+{
+					Tester.AddTest(ValueStack[ValueStack.Depth-2].sVal, ValueStack[ValueStack.Depth-3].teVal, ParametersParser.Parse(ValueStack[ValueStack.Depth-1].sVal));
+				}
+        break;
+      case 14: // event_expression -> KAssert, LeftBracket, Text, RightBracket, test_type, 
                //                     identificator_expression, Text
 {
 					Tester.AddTest(ValueStack[ValueStack.Depth-2].sVal, ValueStack[ValueStack.Depth-3].teVal, ValueStack[ValueStack.Depth-5].sVal, ParametersParser.Parse(ValueStack[ValueStack.Depth-1].sVal));
 				}
         break;
-      case 14: // identificator_expression -> Identificator
+      case 15: // identificator_expression -> Identificator
 {
 					CurrentSemanticValue.sVal = ValueStack[ValueStack.Depth-1].sVal;
 				}
         break;
-      case 15: // identificator_expression -> control_expression
+      case 16: // identificator_expression -> control_expression
 {
 					string name = Convert.ToString(ValueStack[ValueStack.Depth-1].uieVal.GetHashCode(), 16);
 
@@ -327,312 +334,312 @@ public class Parser: ShiftReduceParser<ValueType, LexLocation>
 					CurrentSemanticValue.sVal = name;
 				}
         break;
-      case 16: // assignment_expression -> Identificator, Equil, control_expression
+      case 17: // assignment_expression -> Identificator, Equil, control_expression
 {
 					Tester.AddIdentificator(ValueStack[ValueStack.Depth-3].sVal, ValueStack[ValueStack.Depth-1].uieVal);
 				}
         break;
-      case 17: // control_expression -> control_type, LeftSBracket, Kn, Text, RightSBracket
+      case 18: // control_expression -> control_type, LeftSBracket, Kn, Text, RightSBracket
 {
 					CurrentSemanticValue.uieVal = new UIElement(ValueStack[ValueStack.Depth-2].sVal, null, ValueStack[ValueStack.Depth-5].ctVal);
 				}
         break;
-      case 18: // control_expression -> control_type, LeftSBracket, Ku, Text, RightSBracket
+      case 19: // control_expression -> control_type, LeftSBracket, Ku, Text, RightSBracket
 {
 					CurrentSemanticValue.uieVal = new UIElement(null, ValueStack[ValueStack.Depth-2].sVal, ValueStack[ValueStack.Depth-5].ctVal);
 				}
         break;
-      case 19: // test_type -> KClick
+      case 20: // test_type -> KClick
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 20: // test_type -> KDClick
+      case 21: // test_type -> KDClick
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 21: // test_type -> KKClick
+      case 22: // test_type -> KKClick
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 22: // test_type -> KCtrlClick
+      case 23: // test_type -> KCtrlClick
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 23: // test_type -> KSetFocus
+      case 24: // test_type -> KSetFocus
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 24: // test_type -> KSetText
+      case 25: // test_type -> KSetText
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 25: // test_type -> KCheck
+      case 26: // test_type -> KCheck
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 26: // test_type -> KUncheck
+      case 27: // test_type -> KUncheck
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 27: // test_type -> KCollapse
+      case 28: // test_type -> KCollapse
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 28: // test_type -> KExpand
+      case 29: // test_type -> KExpand
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 29: // test_type -> KScrollTo
+      case 30: // test_type -> KScrollTo
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 30: // test_type -> KItem
+      case 31: // test_type -> KItem
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 31: // test_type -> KSelectCell
+      case 32: // test_type -> KSelectCell
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 32: // test_type -> KSelectItem
+      case 33: // test_type -> KSelectItem
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 33: // test_type -> KGetText
+      case 34: // test_type -> KGetText
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 34: // test_type -> KIsToggleOn
+      case 35: // test_type -> KIsToggleOn
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 35: // test_type -> KIsExpanded
+      case 36: // test_type -> KIsExpanded
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 36: // test_type -> KGetItem
+      case 37: // test_type -> KGetItem
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 37: // test_type -> KSelectedItem
+      case 38: // test_type -> KSelectedItem
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 38: // test_type -> KColumnCount
+      case 39: // test_type -> KColumnCount
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 39: // test_type -> KRowCount
+      case 40: // test_type -> KRowCount
 {
 					CurrentSemanticValue.teVal = ValueStack[ValueStack.Depth-1].teVal;
 				}
         break;
-      case 40: // control_type -> KButton
+      case 41: // control_type -> KButton
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 41: // control_type -> KTree
+      case 42: // control_type -> KTree
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 42: // control_type -> KTreeItem
+      case 43: // control_type -> KTreeItem
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 43: // control_type -> KCustom
+      case 44: // control_type -> KCustom
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 44: // control_type -> KGroup
+      case 45: // control_type -> KGroup
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 45: // control_type -> KThumb
+      case 46: // control_type -> KThumb
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 46: // control_type -> KDataGrid
+      case 47: // control_type -> KDataGrid
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 47: // control_type -> KDataItem
+      case 48: // control_type -> KDataItem
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 48: // control_type -> KToolTip
+      case 49: // control_type -> KToolTip
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 49: // control_type -> KDocument
+      case 50: // control_type -> KDocument
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 50: // control_type -> KPane
+      case 51: // control_type -> KPane
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 51: // control_type -> KHeader
+      case 52: // control_type -> KHeader
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 52: // control_type -> KHeaderItem
+      case 53: // control_type -> KHeaderItem
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 53: // control_type -> KTable
+      case 54: // control_type -> KTable
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 54: // control_type -> KTitleBar
+      case 55: // control_type -> KTitleBar
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 55: // control_type -> KSeparator
+      case 56: // control_type -> KSeparator
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 56: // control_type -> KSplitButton
+      case 57: // control_type -> KSplitButton
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 57: // control_type -> KText
+      case 58: // control_type -> KText
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 58: // control_type -> KToolBar
+      case 59: // control_type -> KToolBar
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 59: // control_type -> KTab
+      case 60: // control_type -> KTab
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 60: // control_type -> KCalendar
+      case 61: // control_type -> KCalendar
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 61: // control_type -> KCheckBox
+      case 62: // control_type -> KCheckBox
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 62: // control_type -> KComboBox
+      case 63: // control_type -> KComboBox
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 63: // control_type -> KEdit
+      case 64: // control_type -> KEdit
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 64: // control_type -> KHyperlink
+      case 65: // control_type -> KHyperlink
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 65: // control_type -> KImage
+      case 66: // control_type -> KImage
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 66: // control_type -> KListItem
+      case 67: // control_type -> KListItem
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 67: // control_type -> KTabItem
+      case 68: // control_type -> KTabItem
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 68: // control_type -> KMenu
+      case 69: // control_type -> KMenu
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 69: // control_type -> KList
+      case 70: // control_type -> KList
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 70: // control_type -> KMenuItem
+      case 71: // control_type -> KMenuItem
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 71: // control_type -> KProgressBar
+      case 72: // control_type -> KProgressBar
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 72: // control_type -> KRadioButton
+      case 73: // control_type -> KRadioButton
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 73: // control_type -> KScrollBar
+      case 74: // control_type -> KScrollBar
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 74: // control_type -> KSlider
+      case 75: // control_type -> KSlider
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 75: // control_type -> KSpinner
+      case 76: // control_type -> KSpinner
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 76: // control_type -> KStatusBar
+      case 77: // control_type -> KStatusBar
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}
         break;
-      case 77: // control_type -> KMenuBar
+      case 78: // control_type -> KMenuBar
 {
 					CurrentSemanticValue.ctVal = ValueStack[ValueStack.Depth-1].ctVal;
 				}

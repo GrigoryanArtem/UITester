@@ -69,6 +69,9 @@ test_expression : assignment_expression { }
 event_expression : test_type identificator_expression {
 					Tester.AddTest($2, $1);
 				}
+				| test_type identificator_expression Text {
+					Tester.AddTest($2, $1, ParametersParser.Parse($3));
+				}
 				| KAssert test_type identificator_expression Text {
 					Tester.AddTest($3, $2, ParametersParser.Parse($4));
 				}

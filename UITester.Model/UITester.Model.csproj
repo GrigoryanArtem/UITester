@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Executors\DefaultTestExecutor.cs" />
     <Compile Include="Executors\DefaultTestsExecutor.cs" />
+    <Compile Include="Executors\FunctionAttribute.cs" />
     <Compile Include="Executors\IExecutor.cs" />
     <Compile Include="Executors\ITestExecutor.cs" />
     <Compile Include="Executors\ITestsExecutor.cs" />
@@ -70,6 +71,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestExecutorStringResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="FileNinjectBindings.cs" />
     <Compile Include="Kernel.cs" />
     <Compile Include="NinjectBindings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="UITests\UITest.cs" />
     <Compile Include="Writers\ConsoleWriter.cs" />
     <Compile Include="Writers\FailureMessage.cs" />
+    <Compile Include="Writers\FileWriter.cs" />
     <Compile Include="Writers\InfoMessage.cs" />
     <Compile Include="Writers\IWriter.cs" />
     <Compile Include="Writers\IWriterMessage.cs" />

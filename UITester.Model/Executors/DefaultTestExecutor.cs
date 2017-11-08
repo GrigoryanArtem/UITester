@@ -3,15 +3,19 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UITester.Model.UIElements;
 using UITester.Model.UITests;
 using UITester.Model.Writers;
+using Winium.Cruciatus.Core;
+using Winium.Cruciatus.Extensions;
 
 namespace UITester.Model.Executors
 {
     public class DefaultTestExecutor : ITestExecutor
     {
-        private Dictionary<TestEvent, Action<IUITest>> mFunctions;
+        private Dictionary<TestEvent, MethodInfo> mFunctions = new Dictionary<TestEvent, MethodInfo>();
         private IWriter mWriter;
 
         #region Properties
@@ -31,15 +35,19 @@ namespace UITester.Model.Executors
 
         public void Execute(IUITest test)
         {
-            mFunctions[test.TestEvent](test);
+            test.Element.SetFocus();
+            InvokeMethod(test.TestEvent, (object)test);
         }
 
         private void InitFunctions()
         {
-            mFunctions = new Dictionary<TestEvent, Action<IUITest>> {
-                { TestEvent.Click, Click },
-                { TestEvent.GetText, GetText }
-            };
+            var functions = GetType()
+                .GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
+                .Where(m => m.GetCustomAttributes<FunctionAttribute>().Any())
+                .Select(m => new KeyValuePair<TestEvent, MethodInfo>(m.GetCustomAttribute<FunctionAttribute>().TestEvent, m));
+
+            foreach (var function in functions)
+                mFunctions.Add(function.Key, function.Value);           
         }
 
         public void ResetCounters()
@@ -51,117 +59,152 @@ namespace UITester.Model.Executors
 
         #region Functions
 
+        [Function(TestEvent.Click)]
         private void Click(IUITest test)
         {
             test.Element.Click();
         }
 
+        [Function(TestEvent.DClick)]
         private void DClick(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.DoubleClick();
         }
 
-        private void KClick(IUITest test)
-        {
-            throw new NotImplementedException();
-        }
-
+        [Function(TestEvent.CtrlClick)]
         private void CtrlClick(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.ClickWithPressedCtrl();
         }
 
-        private void SetFocus(IUITest test)
-        {
-            throw new NotImplementedException();
-        }
+        [Function(TestEvent.SetFocus)]
+        private void SetFocus(IUITest test) { }
 
+        [Function(TestEvent.SetText)]
         private void SetText(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.SetText((string)test.GetParameter("text"));
         }
 
+        [Function(TestEvent.Check)]
         private void Check(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.ToCheckBox().Check();
         }
 
+        [Function(TestEvent.Uncheck)]
         private void Uncheck(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.ToCheckBox().Uncheck();
+            
         }
 
+        [Function(TestEvent.Collapse)]
         private void Collapse(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.ToComboBox().Collapse();
         }
 
+        [Function(TestEvent.Expand)]
         private void Expand(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.ToComboBox().Expand();
         }
 
+        [Function(TestEvent.ScrollTo)]
         private void ScrollTo(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.ToComboBox().ScrollTo(By.Name((string)test.GetParameter("element_name")));
         }
 
+        [Function(TestEvent.Item)]
         private void Item(IUITest test)
         {
-            throw new NotImplementedException();
+            string name = test.Element.ToDataGrid().Item(Convert.ToInt32(test.GetParameter("row")),
+                Convert.ToInt32(test.GetParameter("column"))).Text();
+
+            CheckTest(test, ("name", name));
         }
 
+        [Function(TestEvent.SelectCell)]
         private void SelectCell(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.ToDataGrid().SelectCell(Convert.ToInt32(test.GetParameter("row")),
+                Convert.ToInt32(test.GetParameter("column")));
         }
 
+        [Function(TestEvent.SelectItem)]
         private void SelectItem(IUITest test)
         {
-            throw new NotImplementedException();
+            test.Element.ToMenu().SelectItem((string)test.GetParameter("path"));
         }
 
+        [Function(TestEvent.GetText)]
         private void GetText(IUITest test)
         {
-
             string text = test.Element.Text();
 
             CheckTest(test, ("text", text));
         }
 
+        [Function(TestEvent.IsToggleOn)]
         private void IsToggleOn(IUITest test)
         {
-            throw new NotImplementedException();
+            string isToggle = test.Element.ToCheckBox().IsToggleOn.ToString();
+
+            CheckTest(test, ("isToggleOn", isToggle));
+
         }
 
+        [Function(TestEvent.IsExpanded)]
         private void IsExpanded(IUITest test)
         {
-            throw new NotImplementedException();
+            string isExpanded = test.Element.ToComboBox().IsExpanded.ToString();
+
+            CheckTest(test, ("isExpanded", isExpanded));
         }
 
+        [Function(TestEvent.SelectedItem)]
         private void SelectedItem(IUITest test)
         {
-            throw new NotImplementedException();
+            string name = test.Element.ToComboBox().SelectedItem().ToString();
+
+            CheckTest(test, ("name", name));
         }
 
-        private void voidColumnCount(IUITest test)
+        [Function(TestEvent.ColumnCount)]
+        private void ColumnCount(IUITest test)
         {
-            throw new NotImplementedException();
+            string columnCount = test.Element.ToDataGrid().ColumnCount.ToString();
+
+            CheckTest(test, ("columnCount", columnCount));
         }
 
+        [Function(TestEvent.RowCount)]
         private void RowCount(IUITest test)
         {
-            throw new NotImplementedException();
+            string rowCount = test.Element.ToDataGrid().RowCount.ToString();
+
+            CheckTest(test, ("rowCount", rowCount));
         }
 
+
+        [Function(TestEvent.GetItem)]
         private void GetItem(IUITest test)
         {
-            throw new NotImplementedException();
+            string name = test.Element.ToMenu().GetItem((string)test.GetParameter("path")).ToString();
+
+            CheckTest(test, ("name", name));
         }
 
         #endregion
 
         #region Private methods
+
+        private void InvokeMethod(TestEvent testEvent, params object[] @params)
+        {
+            mFunctions[testEvent].Invoke(this, @params);
+        }
 
         private void CheckTest(IUITest test, params (string paramName, string actualValue)[] paramPairs)
         {
