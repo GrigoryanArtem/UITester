@@ -64,6 +64,7 @@ tests_expression : test_expression {  }
 test_expression : assignment_expression { }
 				| event_expression { }
 				| Comment { }
+				| window_expression { }
 				;
 
 event_expression : test_type identificator_expression {
@@ -81,6 +82,9 @@ event_expression : test_type identificator_expression {
 				;
 
 identificator_expression : Identificator {
+					if(!Tester.IsIdentificatorExist($1)) 
+						throw new ArgumentException(String.Format("Identificator {0} is not exist in table.", $1));
+
 					$$ = $1;
 				}
 				| control_expression {

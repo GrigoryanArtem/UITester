@@ -24,7 +24,7 @@ namespace UITester.Model
         private DateTime mStartTime;
         private Stack<CruciatusElement> mWindowStack =
             new Stack<CruciatusElement>();
-        private Dictionary<string, CruciatusElement> mIdentificators = 
+        private Dictionary<string, CruciatusElement> mIdentificators =
             new Dictionary<string, CruciatusElement>();
 
         #endregion
@@ -32,7 +32,7 @@ namespace UITester.Model
         public UITester(string applicationPath)
         {
             mWriter = Kernel.Instance.Get<IWriter>();
-            mTestsExecutor = Kernel.Instance.Get< ITestExecutor>();
+            mTestsExecutor = Kernel.Instance.Get<ITestExecutor>();
             mApplication = new Application(applicationPath);
             mApplication.Start();
 
@@ -50,7 +50,7 @@ namespace UITester.Model
         public UITester AddIdentificator(string name, UIElement element)
         {
             mIdentificators.Add(name, GetCruciatusElement(element));
-            
+
             return this;
         }
 
@@ -66,7 +66,7 @@ namespace UITester.Model
 
         public UITester AddTest(IUITest test)
         {
-            
+
 
             mTestsExecutor.Execute(test);
             return this;

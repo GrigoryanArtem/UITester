@@ -4,7 +4,7 @@
 // ==========================================================================
 //  Version:  1.3.6
 //  Machine:  TURING
-//  DateTime: 31.10.2017 3:37:36
+//  DateTime: 08.11.2017 12:50:26
 //  UserName: artem
 // ==========================================================================
 
@@ -52,28 +52,11 @@
 %type <sVal> identificator_expression
 
 %%
-// Warning: NonTerminal symbol "init_window_expression" is unreachable
-// Error: NonTerminal symbol "window_expression" has no productions
-// Warning: NonTerminal symbol "event_expression" is unreachable
-// Warning: NonTerminal symbol "assignment_expression" is unreachable
-// Warning: NonTerminal symbol "test_expression" is unreachable
-// Warning: NonTerminal symbol "tests_expression" is unreachable
-// Warning: Terminating window_expression fixes the following size-3 NonTerminal set
-   // {main_expression, $accept, window_expression}
-// Error: There are 3 non-terminating NonTerminal Symbols
-   //  {main_expression, $accept, window_expression}
-// Warning: NonTerminal symbol "identificator_expression" is unreachable
-// Warning: NonTerminal symbol "control_expression" is unreachable
-// Warning: NonTerminal symbol "control_type" is unreachable
-// Warning: NonTerminal symbol "test_type" is unreachable
-// ---------------------------------------------------------------------------------
 
 main_expression : window_expression { }
 				;
 
-window_expression :  init_window_expression LeftFBracket tests_expression RightFBracket  }
-// Error: Syntax error, unexpected '}'
-// -----------------------------------
+window_expression :  init_window_expression LeftFBracket tests_expression close_window_expression { }
 			    ;
 
 init_window_expression : KWindow LeftBracket Text RightBracket {
@@ -81,6 +64,10 @@ init_window_expression : KWindow LeftBracket Text RightBracket {
 				}		
 				;
 
+close_window_expression : RightFBracket {
+					Tester.Unbecome();
+				}
+				;
 tests_expression : test_expression {  }
 				| test_expression tests_expression { }
 				;
@@ -88,10 +75,14 @@ tests_expression : test_expression {  }
 test_expression : assignment_expression { }
 				| event_expression { }
 				| Comment { }
+				| window_expression { }
 				;
 
 event_expression : test_type identificator_expression {
 					Tester.AddTest($2, $1);
+				}
+				| test_type identificator_expression Text {
+					Tester.AddTest($2, $1, ParametersParser.Parse($3));
 				}
 				| KAssert test_type identificator_expression Text {
 					Tester.AddTest($3, $2, ParametersParser.Parse($4));
@@ -102,12 +93,18 @@ event_expression : test_type identificator_expression {
 				;
 
 identificator_expression : Identificator {
-					$$ = $1
+					if(!Tester.IsIdentificatorExist($1)) 
+						throw new ArgumentException($"Identificator {$1} is not exist in table.");
+//--------------------------------^^
+// Error: Unknown special marker in semantic action
+// ------------------------------------------------
+
+					$$ = $1;
 				}
 				| control_expression {
 					string name = Convert.ToString($1.GetHashCode(), 16);
 
-					if(!Tester.IsIsIdentificatorExist(name))
+					if(!Tester.IsIdentificatorExist(name))
 						Tester.AddIdentificator(name, $1);
 						
 					$$ = name;

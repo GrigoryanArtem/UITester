@@ -1,6 +1,7 @@
 ﻿// Copyright 2017 Grigoryan Artem
 // Licensed under the Apache License, Version 2.0
 
+using NLog;
 using System;
 
 namespace UITester.Model.Writers
@@ -44,7 +45,10 @@ namespace UITester.Model.Writers
         private void WriteColorMessage(IWriterMessage message, ConsoleColor color)
         {
             Console.ForegroundColor = color;
+
+            LogManager.GetCurrentClassLogger().Info(message.Content);
             Console.WriteLine(message.Content);
+
             Console.ResetColor();
         }
 
