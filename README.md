@@ -29,3 +29,70 @@ CLICK c
 Рассмотрим его более подробно. Первые четыре команды выполняют операцию нажатия кнопки (клик), используя заранее объявленные переменные для каждой из них. В данном случае были нажаты кнопки «4», «-», «2». Для четвертой кнопки («=») переменная не задавалась изначально, а была использовано объявление напрямую в операции «CLICK». 
 После этого с помощью команды *ASSERT* проверяется, что в текстовом поле textBox будет значение «2». Для этого в *ASSERT* передаётся строка для вывода в консоль/файл "4 - 2 = 2" для указания какой тест сейчас проходит. После методом *GET_TEXT* получаем значение текстового поля textbox, и проверяем, что его значение равно «2». Если ожидаемое и реальное значение совпали, то тест считается пройденным, иначе выводится сообщение что тест не пройден, ожидаемое и реальное значение. Полный перечень команд предоставлен в приложении В.
 После этого можно описать ещё такие же блоки для выполнения каких-либо других проверок. При написании всех тестов необходимо не забыть закрыть, открытую в начале, фигурную скобку (“}”). На этом моменте тест считается написанным, и его можно использовать в программе.
+
+<h2>Список поддерживаемых элементов</h2>
+
+- WINDOW
+- BUTTON
+- TREE
+- TREE_ITEM
+- CUSTOM
+- GROUP
+- THUMB
+- DATA_GRID
+- DATA_ITEM
+- TOOL_TIP
+- DOCUMENT
+- PANE
+- HEADER
+- HEADER_ITEM
+- TABLE
+- TITLE_BAR
+- SEPARATOR
+- SPLIT_BUTTON
+- TEXT
+- TOOL_BAR
+- TAB
+- CALENDAR
+- CHECK_BOX
+- COMBO_BOX
+- EDIT
+- HYPER_LINK
+- IMAGE
+- LIST_ITEM
+- TAB_ITEM
+- MENU
+- LIST
+- MENU_ITEM
+- PROGRESS_BAR
+- RADIO_BUTTON
+- SCROLL_BAR
+- SLIDER
+- SPINNER
+- STATUS_BAR
+- MENU_BAR
+
+<h2>Список событий и их описание</h2>
+
+| EVENT         | PARAMS                                               | ASSERT | ELEMENTS                            |
+|---------------|------------------------------------------------------|--------|-------------------------------------|
+| CLICK         | –                                                    | –      | All                                 |
+| D_CLICK       | –                                                    | –      | All                                 |
+| CTRL_CLICK    | –                                                    | –      | All                                 |
+| SET_FOCUS     | –                                                    | –      | All                                 |
+| SET_TEXT      | text : string                                        | –      | All                                 |
+| CHECK         | –                                                    | –      | CHECK_BOX                           |
+| UNCHECK       | –                                                    | –      | CHECK_BOX                           |
+| COLLAPSE      | –                                                    | –      | COMBO_BOX                           |
+| EXPAND        | –                                                    | –      | COMBO_BOX                           |
+| SCROLL_TO     | element_name   : string                              | –      |  COMBO_BOX /  DATA_GRID / LIST_BOX  |
+| ITEM          | row : int32 /     column : int32 /     name : string | +      | DATA_GRID                           |
+| SELECT_CELL   | row   : int32 /     column : int32                   | –      | DATA_GRID                           |
+| SELECT_ITEM   | path : sting (разделитель $)                         | –      | MENU                                |
+| GET_TEXT      | text   : string                                      | +      | All                                 |
+| IS_TOGGLE_ON  | isToggleOn : bool                                    |  +     | CHECK_BOX                           |
+| IS_EXPANDED   | isExpanded   : bool                                  | +      | COMBO_BOX                           |
+| SELECTED_ITEM | name : string                                        | +      | COMBO_BOX                           |
+| COLUMN_COUNT  | columnCount   : int32                                | +      | DATA_GRID                           |
+| ROW_COUNT     | rowCount : int32                                     | +      | DATA_GRID                           |
+| GET_ITEM      | path   : string (разделитель $) /     name : string  | +      | MENU                                |
